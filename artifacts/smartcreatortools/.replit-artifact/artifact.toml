@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "SmartCreatorTools"
+version = "1.0.0"
+id = "artifacts/smartcreatortools"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23986
+
+[services.development]
+run = "pnpm --filter @workspace/smartcreatortools run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/smartcreatortools", "run", "build" ]
+publicDir = "artifacts/smartcreatortools/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23986"
+BASE_PATH = "/"
