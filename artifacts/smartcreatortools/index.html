@@ -1,15 +1,103 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='1' stop-color='%23ec4899'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M9 22V10h4l3 8 3-8h4v12h-3v-7l-3 7h-2l-3-7v7z' fill='white'/></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Primary meta -->
+    <title>SmartCreatorTools — 20+ Free Online Tools for Creators, Students &amp; Developers</title>
+    <meta name="description" content="Free, fast, no-signup online tools: AI Text Humanizer, Image Compressor, QR Code Generator, Word Counter, PDF to PNG, Code to Image, GPA Predictor and more. Runs entirely in your browser." />
+    <meta name="keywords" content="free online tools, ai text humanizer, image compressor, qr code generator, word counter, pdf to png converter, code to image, gpa calculator, json formatter, base64 encoder, password generator, text tools, developer tools, student tools" />
+    <meta name="author" content="SmartCreatorTools" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="theme-color" content="#7c3aed" />
-    <title>SmartCreatorTools — 20+ Free Online Tools for Creators, Students & Developers</title>
-    <meta name="description" content="Free, fast, no-signup online tools: AI Text Humanizer, Image Compressor, QR Code Generator, Word Counter, PDF to PNG, Code to Image, GPA Predictor and more." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="application-name" content="SmartCreatorTools" />
+    <meta name="generator" content="Vite + React" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://smartcreatortools.com/" />
+    <meta property="og:site_name" content="SmartCreatorTools" />
+    <meta property="og:title" content="SmartCreatorTools — 20+ Free Online Tools for Creators, Students &amp; Developers" />
+    <meta property="og:description" content="Free, fast, no-signup tools running entirely in your browser. AI humanizer, image compressor, QR generator, word counter, PDF to PNG, code screenshot, GPA predictor and more." />
+    <meta property="og:image" content="https://smartcreatortools.com/opengraph.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SmartCreatorTools — Free Online Tools for Creators" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@SmartCreatorTools" />
+    <meta name="twitter:creator" content="@SmartCreatorTools" />
+    <meta name="twitter:title" content="SmartCreatorTools — 20+ Free Online Tools" />
+    <meta name="twitter:description" content="Free, fast, no-signup tools in your browser. AI humanizer, image compressor, QR generator, PDF to PNG, GPA calculator and more." />
+    <meta name="twitter:image" content="https://smartcreatortools.com/opengraph.jpg" />
+    <meta name="twitter:image:alt" content="SmartCreatorTools — Free Online Tools for Creators" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://smartcreatortools.com/" />
+
+    <!-- Favicon & app icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Sitemap reference -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Organization JSON-LD (static, always present) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SmartCreatorTools",
+      "url": "https://smartcreatortools.com",
+      "logo": "https://smartcreatortools.com/favicon.svg",
+      "description": "Free, fast, no-signup online tools for creators, students, and developers.",
+      "sameAs": [
+        "https://twitter.com/SmartCreatorTools",
+        "https://github.com/SmartCreatorTools"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@smartcreatortools.com"
+      }
+    }
+    </script>
+
+    <!-- WebSite + SearchAction JSON-LD (static) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SmartCreatorTools",
+      "url": "https://smartcreatortools.com",
+      "description": "20+ free online tools for creators, students, and developers. No signup, runs in your browser.",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://smartcreatortools.com/tools?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow admin / internal paths (none currently, but blocking any future ones)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://smartcreatortools.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
