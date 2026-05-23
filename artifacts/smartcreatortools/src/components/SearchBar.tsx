@@ -14,6 +14,7 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
   const [open, setOpen] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [, setLocation] = useLocation();
 
   const matches = useMemo(() => {
@@ -45,10 +46,18 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
     setQuery("");
     setLocation(`/tools/${slug}`);
     onNavigate?.();
+    inputRef.current?.blur();
   };
 
   const onKey = (e: React.KeyboardEvent) => {
-    if (!open || matches.length === 0) return;
+    if (!open || matches.length === 0) {
+      if (e.key === "Enter" && query.trim()) {
+        setLocation(`/tools?q=${encodeURIComponent(query.trim())}`);
+        setOpen(false);
+        onNavigate?.();
+      }
+      return;
+    }
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setActiveIdx((i) => (i + 1) % matches.length);
@@ -60,30 +69,32 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
       select(matches[activeIdx].slug);
     } else if (e.key === "Escape") {
       setOpen(false);
+      inputRef.current?.blur();
     }
   };
 
   const isHero = variant === "hero";
 
   return (
-    <div ref={containerRef} className={cn("relative w-full", isHero ? "max-w-2xl" : "max-w-md")}>
+    <div ref={containerRef} className={cn("relative w-full", isHero ? "max-w-2xl" : "max-w-xs sm:max-w-sm md:max-w-md")}>
       <div
         className={cn(
           "glass-strong relative flex items-center rounded-full transition-all",
-          isHero ? "px-6 py-4" : "px-4 py-2.5",
+          isHero ? "px-5 sm:px-6 py-3.5 sm:py-4" : "px-3.5 py-2.5",
           "focus-within:ring-2 focus-within:ring-primary/40",
         )}
       >
         <Search
-          className={cn("text-muted-foreground", isHero ? "w-5 h-5" : "w-4 h-4")}
+          className={cn("text-muted-foreground shrink-0", isHero ? "w-5 h-5" : "w-4 h-4")}
           aria-hidden
         />
         <input
+          ref={inputRef}
           type="search"
           value={query}
           placeholder={isHero ? "Search 20+ tools, e.g. QR code, JSON, image…" : "Search tools…"}
           className={cn(
-            "ml-3 flex-1 bg-transparent border-0 outline-none placeholder:text-muted-foreground",
+            "ml-2.5 flex-1 bg-transparent border-0 outline-none placeholder:text-muted-foreground min-w-0",
             isHero ? "text-base" : "text-sm",
           )}
           onChange={(e) => {
@@ -94,9 +105,10 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
           onFocus={() => query && setOpen(true)}
           onKeyDown={onKey}
           aria-label="Search tools"
+          autoComplete="off"
         />
         {isHero && (
-          <kbd className="hidden sm:inline-flex items-center gap-1 rounded-md bg-muted/60 px-2 py-1 text-[10px] font-medium text-muted-foreground">
+          <kbd className="hidden sm:inline-flex items-center gap-1 rounded-md bg-muted/60 px-2 py-1 text-[10px] font-medium text-muted-foreground shrink-0">
             <span>↵</span>
             Enter
           </kbd>
@@ -120,7 +132,7 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
               >
                 <div
                   className={cn(
-                    "h-9 w-9 rounded-lg bg-gradient-to-br grid place-items-center text-white shrink-0",
+                    "h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-gradient-to-br grid place-items-center text-white shrink-0",
                     t.accent,
                   )}
                 >
@@ -128,7 +140,7 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold truncate">{t.name}</div>
-                  <div className="text-xs text-muted-foreground truncate">
+                  <div className="text-xs text-muted-foreground truncate hidden sm:block">
                     {t.shortDescription}
                   </div>
                 </div>
@@ -139,8 +151,8 @@ export function SearchBar({ variant = "compact", onNavigate }: SearchBarProps) {
         </div>
       )}
       {open && query && matches.length === 0 && (
-        <div className="absolute left-0 right-0 top-full mt-2 glass-strong rounded-2xl p-6 text-center text-sm text-muted-foreground z-50">
-          No tools match <span className="font-semibold text-foreground">{query}</span>.{" "}
+        <div className="absolute left-0 right-0 top-full mt-2 glass-strong rounded-2xl p-5 sm:p-6 text-center text-sm text-muted-foreground z-50">
+          No tools match <span className="font-semibold text-foreground">"{query}"</span>.{" "}
           <Link href="/tools" className="text-primary font-semibold hover:underline">
             Browse all
           </Link>

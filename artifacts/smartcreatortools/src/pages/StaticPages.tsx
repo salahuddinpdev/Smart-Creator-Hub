@@ -12,16 +12,18 @@ function PageWrapper({
   intro: string;
   children: React.ReactNode;
 }) {
+  const words = title.split(" ");
+  const last = words.slice(-1)[0];
+  const rest = words.slice(0, -1).join(" ");
   return (
     <Layout>
-      <section className="pt-10 pb-20">
-        <div className="mx-auto max-w-3xl px-4">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-            {title.split(" ").slice(0, -1).join(" ")}{" "}
-            <span className="gradient-text">{title.split(" ").slice(-1)}</span>
+      <section className="pt-8 sm:pt-10 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+            {rest} <span className="gradient-text">{last}</span>
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">{intro}</p>
-          <div className="mt-10 glass-strong rounded-3xl p-6 sm:p-10 prose prose-lg max-w-none dark:prose-invert prose-headings:tracking-tight prose-p:leading-[1.8] prose-p:text-foreground/85">
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground">{intro}</p>
+          <div className="mt-8 sm:mt-10 glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 prose prose-sm sm:prose-base lg:prose-lg max-w-none dark:prose-invert prose-headings:tracking-tight prose-p:leading-[1.8] prose-p:text-foreground/85">
             {children}
           </div>
         </div>
@@ -187,34 +189,34 @@ export function Contact() {
         canonicalPath="/contact"
       />
       <Layout>
-        <section className="pt-10 pb-20">
-          <div className="mx-auto max-w-4xl px-4">
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+        <section className="pt-8 sm:pt-10 pb-16 sm:pb-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
               Get in <span className="gradient-text">touch</span>
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground">
               We read every message. Bug reports, feature requests, partnership ideas — all
               welcome.
             </p>
 
-            <div className="mt-10 grid md:grid-cols-2 gap-5">
+            <div className="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
               <a
                 href="mailto:hello@smartcreatortools.com"
-                className="glass rounded-2xl p-6 hover:-translate-y-1 transition-all block"
+                className="glass rounded-2xl p-5 sm:p-6 card-lift block"
               >
-                <Mail className="w-7 h-7 text-primary" />
-                <h3 className="mt-4 font-bold">Email us</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+                <h3 className="mt-3 sm:mt-4 font-bold text-sm sm:text-base">Email us</h3>
+                <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
                   hello@smartcreatortools.com — for anything.
                 </p>
               </a>
               <a
                 href="#"
-                className="glass rounded-2xl p-6 hover:-translate-y-1 transition-all block"
+                className="glass rounded-2xl p-5 sm:p-6 card-lift block"
               >
-                <MessageCircle className="w-7 h-7 text-primary" />
-                <h3 className="mt-4 font-bold">Community</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
+                <h3 className="mt-3 sm:mt-4 font-bold text-sm sm:text-base">Community</h3>
+                <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
                   Join our Discord — share what you build with our tools.
                 </p>
               </a>
@@ -225,11 +227,11 @@ export function Contact() {
                 e.preventDefault();
                 alert("Thanks — your message has been queued for the team.");
               }}
-              className="mt-8 glass-strong rounded-3xl p-6 sm:p-8 space-y-4"
+              className="mt-6 sm:mt-8 glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-8 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Your name
                   </label>
                   <input
@@ -239,7 +241,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                     Email
                   </label>
                   <input
@@ -250,7 +252,7 @@ export function Contact() {
                 </div>
               </div>
               <div>
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Subject
                 </label>
                 <input
@@ -260,18 +262,18 @@ export function Contact() {
                 />
               </div>
               <div>
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <label className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Message
                 </label>
                 <textarea
                   required
-                  rows={6}
+                  rows={5}
                   className="mt-2 w-full rounded-xl bg-muted/40 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-y"
                 />
               </div>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-xl gradient-bg px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-bg px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-px transition-all"
               >
                 Send Message
               </button>

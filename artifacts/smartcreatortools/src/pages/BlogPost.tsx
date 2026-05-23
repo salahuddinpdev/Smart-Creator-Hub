@@ -12,7 +12,7 @@ export function BlogPost() {
   const post = params?.slug ? getPostBySlug(params.slug) : undefined;
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [params?.slug]);
 
   if (!post) return <NotFound />;
@@ -37,73 +37,78 @@ export function BlogPost() {
           publisher: { "@type": "Organization", name: "SmartCreatorTools" },
         }}
       />
-      <article className="pt-8 pb-20">
-        <div className="mx-auto max-w-3xl px-4">
-          <nav aria-label="Breadcrumb" className="flex items-center text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground transition-colors">
+      <article className="pt-6 sm:pt-8 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center text-xs sm:text-sm text-muted-foreground overflow-hidden"
+          >
+            <Link href="/" className="hover:text-foreground transition-colors shrink-0">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 mx-1.5" />
-            <Link href="/blog" className="hover:text-foreground transition-colors">
+            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 mx-1 sm:mx-1.5 shrink-0" />
+            <Link href="/blog" className="hover:text-foreground transition-colors shrink-0">
               Blog
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 mx-1.5" />
+            <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 mx-1 sm:mx-1.5 shrink-0" />
             <span className="text-foreground font-medium truncate">{post.title}</span>
           </nav>
 
-          <header className="mt-8">
+          <header className="mt-6 sm:mt-8">
             <div className="text-[10px] font-bold uppercase tracking-wider text-primary">
               {post.category}
             </div>
-            <h1 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
               {post.title}
             </h1>
-            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+            <p className="mt-3 sm:mt-5 text-sm sm:text-lg text-muted-foreground leading-relaxed">
+              {post.excerpt}
+            </p>
+            <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
-                <User className="w-4 h-4" /> {post.author}
+                <User className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {post.author}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Calendar className="w-4 h-4" /> {post.date}
+                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {post.date}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Clock className="w-4 h-4" /> {post.readingTime} min read
+                <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {post.readingTime} min read
               </span>
             </div>
           </header>
 
           <div
-            className={`mt-10 aspect-[16/9] rounded-3xl bg-gradient-to-br ${post.cover.gradient} shadow-2xl`}
+            className={`mt-8 sm:mt-10 aspect-[16/9] rounded-2xl sm:rounded-3xl bg-gradient-to-br ${post.cover.gradient} shadow-2xl`}
           />
 
-          <div className="mt-10 prose prose-lg max-w-none dark:prose-invert prose-headings:tracking-tight prose-p:leading-[1.8] prose-p:text-foreground/85">
+          <div className="mt-8 sm:mt-10 prose prose-sm sm:prose-base lg:prose-lg max-w-none dark:prose-invert prose-headings:tracking-tight prose-p:leading-[1.8] prose-p:text-foreground/85">
             {post.content.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <AdSlot variant="in-content" />
           </div>
         </div>
       </article>
 
-      <section className="pb-12">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-extrabold tracking-tight">Keep reading</h2>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <section className="pb-10 sm:pb-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">Keep reading</h2>
+          <div className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
             {related.map((p) => (
               <Link
                 key={p.slug}
                 href={`/blog/${p.slug}`}
-                className="group glass rounded-2xl overflow-hidden hover:-translate-y-1 transition-all"
+                className="group glass rounded-2xl overflow-hidden card-lift"
               >
                 <div className={`aspect-[16/9] bg-gradient-to-br ${p.cover.gradient}`} />
-                <div className="p-5">
+                <div className="p-4 sm:p-5">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-primary">
                     {p.category}
                   </div>
-                  <h3 className="mt-2 font-bold text-base group-hover:text-primary transition-colors">
+                  <h3 className="mt-2 font-bold text-sm sm:text-base group-hover:text-primary transition-colors leading-tight">
                     {p.title}
                   </h3>
                 </div>

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
 import { ToolCard } from "@/components/ToolCard";
@@ -38,61 +38,99 @@ export function ToolsDirectory() {
         keywords={["online tools", "tools directory", "free tools"]}
         canonicalPath="/tools"
       />
-      <section className="pt-10 pb-20">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="pt-8 sm:pt-10 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
               All <span className="gradient-text">{tools.length} tools</span>
             </h1>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">
               Filter by category or search by name. Every tool is free and runs in your browser.
             </p>
           </div>
 
-          <div className="mt-10 glass-strong rounded-2xl p-4">
+          {/* Search */}
+          <div className="mt-8 sm:mt-10 glass-strong rounded-xl sm:rounded-2xl px-4 py-3 sm:p-4">
             <div className="flex items-center gap-3">
-              <Search className="w-5 h-5 text-muted-foreground" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground shrink-0" />
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by name, keyword, or use case…"
-                className="flex-1 bg-transparent border-0 outline-none text-base placeholder:text-muted-foreground"
+                className="flex-1 bg-transparent border-0 outline-none text-sm sm:text-base placeholder:text-muted-foreground min-w-0"
+                autoComplete="off"
               />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="shrink-0 h-7 w-7 grid place-items-center rounded-full hover:bg-muted/60 transition-colors"
+                  aria-label="Clear search"
+                >
+                  <X className="w-3.5 h-3.5 text-muted-foreground" />
+                </button>
+              )}
             </div>
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center gap-2">
-            {(["All", ...TOOL_CATEGORIES] as Filter[]).map((c) => (
-              <button
-                key={c}
-                type="button"
-                onClick={() => setFilter(c)}
-                className={cn(
-                  "rounded-full px-4 py-2 text-sm font-semibold transition-all",
-                  filter === c
-                    ? "gradient-bg text-white shadow-lg shadow-primary/30"
-                    : "glass hover:bg-primary/10 hover:text-primary",
-                )}
-              >
-                {c}
-                <span className={cn("ml-1.5 text-xs", filter === c ? "opacity-80" : "opacity-50")}>
-                  {c === "All" ? tools.length : tools.filter((t) => t.category === c).length}
-                </span>
-              </button>
-            ))}
+          {/* Category filter — horizontally scrollable on mobile */}
+          <div className="mt-4 sm:mt-5 -mx-4 sm:mx-0">
+            <div className="overflow-x-auto scrollbar-hide px-4 sm:px-0">
+              <div className="flex items-center gap-2 w-max sm:w-auto sm:flex-wrap pb-1">
+                {(["All", ...TOOL_CATEGORIES] as Filter[]).map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => setFilter(c)}
+                    className={cn(
+                      "rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap",
+                      filter === c
+                        ? "gradient-bg text-white shadow-lg shadow-primary/30"
+                        : "glass hover:bg-primary/10 hover:text-primary",
+                    )}
+                  >
+                    {c}
+                    <span
+                      className={cn(
+                        "ml-1.5 text-[10px] sm:text-xs",
+                        filter === c ? "opacity-80" : "opacity-50",
+                      )}
+                    >
+                      {c === "All" ? tools.length : tools.filter((t) => t.category === c).length}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
+          {/* Results */}
           {filtered.length > 0 ? (
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {filtered.map((t, i) => (
-                <ToolCard key={t.slug} tool={t} index={i} />
-              ))}
-            </div>
+            <>
+              <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-muted-foreground">
+                {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
+                {filter !== "All" ? ` in ${filter}` : ""}
+                {query ? ` matching "${query}"` : ""}
+              </p>
+              <div className="mt-3 sm:mt-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+                {filtered.map((t, i) => (
+                  <ToolCard key={t.slug} tool={t} index={i} />
+                ))}
+              </div>
+            </>
           ) : (
-            <div className="mt-12 glass rounded-2xl p-12 text-center">
-              <p className="text-muted-foreground">
-                No tools match. Try a different keyword or clear filters.
+            <div className="mt-10 sm:mt-12 glass rounded-2xl p-10 sm:p-12 text-center">
+              <p className="text-sm sm:text-base text-muted-foreground">
+                No tools match. Try a different keyword or{" "}
+                <button
+                  type="button"
+                  onClick={() => { setFilter("All"); setQuery(""); }}
+                  className="text-primary font-semibold hover:underline"
+                >
+                  clear all filters
+                </button>
+                .
               </p>
             </div>
           )}
