@@ -832,6 +832,30 @@ export const tools: Tool[] = [
     functional: true,
     accent: "from-purple-500 to-indigo-500",
   },
+  {
+    slug: "ai-text-summarizer",
+    name: "AI Text Summarizer",
+    category: "Text",
+    icon: FileText,
+    shortDescription:
+      "Instantly condense any article, essay, or report into a short, clear summary — no AI key needed.",
+    longDescription:
+      "AI Text Summarizer uses extractive summarization to identify and return only the most important sentences from any text. It scores every sentence using term-frequency weighting (words that appear more often carry more weight), positional heuristics (opening and closing sentences of a passage tend to contain key information), and a length filter that avoids ultra-short fragments and run-on walls of text. The result is a coherent summary at roughly 20, 30, or 40 percent of the original length — your choice. You can receive the output as a clean paragraph or as a bullet-point list for easy skimming. Because the algorithm is deterministic and runs entirely in your browser, there is no API key to configure, no usage limit, and no privacy concern — your text never leaves your device. Use it to distil long research papers, meeting transcripts, news articles, legal documents, or email threads into the key points in seconds. Students use it to review lecture notes. Journalists use it to triage long press releases. Developers use it to skim API documentation. The compression ratio is displayed live so you always know exactly how much the text has been shortened.",
+    keywords: [
+      "ai text summarizer",
+      "text summarizer online",
+      "summarize text free",
+      "article summarizer",
+      "automatic summarization",
+      "tldr tool",
+      "condense text",
+      "extractive summarization",
+    ],
+    featured: true,
+    trending: true,
+    functional: true,
+    accent: "from-blue-500 to-cyan-500",
+  },
 ];
 
 export const getToolBySlug = (slug: string): Tool | undefined =>

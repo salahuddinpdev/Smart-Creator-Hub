@@ -49,6 +49,7 @@ import { CharacterLimitChecker } from "./CharacterLimitChecker";
 import { NumberBaseConverter } from "./NumberBaseConverter";
 import { JsonToCsv } from "./JsonToCsv";
 import { TextSorter } from "./TextSorter";
+import { AiTextSummarizer } from "./AiTextSummarizer";
 
 export const toolComponents: Record<string, ComponentType> = {
   "ai-text-humanizer": AiTextHumanizer,
@@ -101,4 +102,5 @@ export const toolComponents: Record<string, ComponentType> = {
   "number-base-converter": NumberBaseConverter,
   "json-to-csv": JsonToCsv,
   "text-sorter": TextSorter,
+  "ai-text-summarizer": AiTextSummarizer,
 };
