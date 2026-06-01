@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Search, X, SlidersHorizontal } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
 import { ToolCard } from "@/components/ToolCard";
@@ -9,13 +9,18 @@ import { cn } from "@/lib/utils";
 type Filter = "All" | ToolCategory;
 
 export function ToolsDirectory() {
-  const [filter, setFilter] = useState<Filter>(() => {
-    if (typeof window === "undefined") return "All";
+  const [filter, setFilter] = useState<Filter>("All");
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const cat = params.get("category") as Filter | null;
-    return cat && (cat === "All" || TOOL_CATEGORIES.includes(cat as ToolCategory)) ? cat : "All";
-  });
-  const [query, setQuery] = useState("");
+    if (cat && (cat === "All" || TOOL_CATEGORIES.includes(cat as ToolCategory))) {
+      setFilter(cat);
+    }
+    const q = params.get("q");
+    if (q) setQuery(q);
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -30,15 +35,23 @@ export function ToolsDirectory() {
     });
   }, [filter, query]);
 
+  const categoryCounts = useMemo(() =>
+    Object.fromEntries(TOOL_CATEGORIES.map((c) => [c, tools.filter((t) => t.category === c).length])),
+    [],
+  );
+
   return (
     <Layout>
       <Seo
-        title="All Free Online Tools — SmartCreatorTools"
-        description="Browse 20+ free online tools for writing, images, development, students, and productivity. AI text humanizer, image compressor, QR code generator, PDF converter and more. No signup required."
+        title="All 50 Free Online Tools — SmartCreatorTools"
+        description="Browse 50+ free online tools for writing, images, development, students, and productivity. AI text humanizer, image compressor, QR code generator, JSON formatter, password generator, regex tester and more. No signup required — runs in your browser."
         keywords={[
           "free online tools",
           "online tools directory",
           "ai tools free",
+          "smart tools website",
+          "utility tools platform",
+          "text tools online",
           "image tools online",
           "developer tools browser",
           "student tools online",
@@ -51,11 +64,11 @@ export function ToolsDirectory() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Free Online Tools",
-          description: "20+ free online tools for creators, students, and developers",
+          name: "Free Online Tools — SmartCreatorTools",
+          description: "50+ free online tools for creators, students, and developers",
           url: "https://smartcreatortools.com/tools",
           numberOfItems: tools.length,
-          itemListElement: tools.slice(0, 10).map((t, i) => ({
+          itemListElement: tools.slice(0, 15).map((t, i) => ({
             "@type": "ListItem",
             position: i + 1,
             name: t.name,
@@ -65,19 +78,25 @@ export function ToolsDirectory() {
         }}
       />
 
-      <section className="pt-8 sm:pt-10 pb-16 sm:pb-20">
+      <section className="pt-8 sm:pt-10 pb-16 sm:pb-20 animate-fade-in">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
+          {/* Page heading */}
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
               All <span className="gradient-text">{tools.length} tools</span>
             </h1>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">
-              Filter by category or search by name. Every tool is free and runs in your browser.
+              Filter by category or search by name. Every tool is free and runs entirely in your browser.
             </p>
           </div>
 
           {/* Search */}
-          <div className="mt-8 sm:mt-10 glass-strong rounded-xl sm:rounded-2xl px-4 py-3 sm:p-4" role="search" aria-label="Search tools">
+          <div
+            className="mt-8 sm:mt-10 glass-strong rounded-xl sm:rounded-2xl px-4 py-3 sm:p-4 focus-within:ring-2 focus-within:ring-primary/40 transition-all"
+            role="search"
+            aria-label="Search tools"
+          >
             <div className="flex items-center gap-3">
               <Search className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground shrink-0" aria-hidden="true" />
               <input
@@ -87,6 +106,7 @@ export function ToolsDirectory() {
                 placeholder="Search by name, keyword, or use case…"
                 className="flex-1 bg-transparent border-0 outline-none text-sm sm:text-base placeholder:text-muted-foreground min-w-0"
                 autoComplete="off"
+                spellCheck={false}
                 aria-label="Search tools"
               />
               {query && (
@@ -102,17 +122,38 @@ export function ToolsDirectory() {
             </div>
           </div>
 
-          {/* Category filter — horizontally scrollable on mobile */}
+          {/* Category filter */}
           <div className="mt-4 sm:mt-5 -mx-4 sm:mx-0">
             <div className="overflow-x-auto scrollbar-hide px-4 sm:px-0">
-              <div className="flex items-center gap-2 w-max sm:w-auto sm:flex-wrap pb-1" role="group" aria-label="Filter by category">
-                {(["All", ...TOOL_CATEGORIES] as Filter[]).map((c) => (
+              <div
+                className="flex items-center gap-2 w-max sm:w-auto sm:flex-wrap pb-1"
+                role="group"
+                aria-label="Filter by category"
+              >
+                <button
+                  key="All"
+                  type="button"
+                  onClick={() => setFilter("All")}
+                  aria-pressed={filter === "All"}
+                  className={cn(
+                    "rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap",
+                    filter === "All"
+                      ? "gradient-bg text-white shadow-lg shadow-primary/30"
+                      : "glass hover:bg-primary/10 hover:text-primary",
+                  )}
+                >
+                  All
+                  <span className={cn("ml-1.5 text-[10px] sm:text-xs", filter === "All" ? "opacity-80" : "opacity-50")} aria-hidden="true">
+                    {tools.length}
+                  </span>
+                </button>
+                {TOOL_CATEGORIES.map((c) => (
                   <button
                     key={c}
                     type="button"
                     onClick={() => setFilter(c)}
                     aria-pressed={filter === c}
-                    aria-label={`Filter: ${c} (${c === "All" ? tools.length : tools.filter((t) => t.category === c).length} tools)`}
+                    aria-label={`Filter: ${c} (${categoryCounts[c]} tools)`}
                     className={cn(
                       "rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap",
                       filter === c
@@ -121,14 +162,8 @@ export function ToolsDirectory() {
                     )}
                   >
                     {c}
-                    <span
-                      className={cn(
-                        "ml-1.5 text-[10px] sm:text-xs",
-                        filter === c ? "opacity-80" : "opacity-50",
-                      )}
-                      aria-hidden="true"
-                    >
-                      {c === "All" ? tools.length : tools.filter((t) => t.category === c).length}
+                    <span className={cn("ml-1.5 text-[10px] sm:text-xs", filter === c ? "opacity-80" : "opacity-50")} aria-hidden="true">
+                      {categoryCounts[c]}
                     </span>
                   </button>
                 ))}
@@ -136,26 +171,29 @@ export function ToolsDirectory() {
             </div>
           </div>
 
-          {/* Results */}
+          {/* Results count */}
+          <div className="mt-4 sm:mt-6 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">
+            <SlidersHorizontal className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+            <span>
+              {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
+              {filter !== "All" ? ` in ${filter}` : ""}
+              {query ? ` matching "${query}"` : ""}
+            </span>
+          </div>
+
+          {/* Tool grid */}
           {filtered.length > 0 ? (
-            <>
-              <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">
-                {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
-                {filter !== "All" ? ` in ${filter}` : ""}
-                {query ? ` matching "${query}"` : ""}
-              </p>
-              <div
-                className="mt-3 sm:mt-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
-                role="list"
-                aria-label="Tools"
-              >
-                {filtered.map((t, i) => (
-                  <div key={t.slug} role="listitem">
-                    <ToolCard tool={t} index={i} />
-                  </div>
-                ))}
-              </div>
-            </>
+            <div
+              className="mt-3 sm:mt-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
+              role="list"
+              aria-label="Tools"
+            >
+              {filtered.map((t, i) => (
+                <div key={t.slug} role="listitem">
+                  <ToolCard tool={t} index={i} />
+                </div>
+              ))}
+            </div>
           ) : (
             <div className="mt-10 sm:mt-12 glass rounded-2xl p-10 sm:p-12 text-center" role="status">
               <p className="text-sm sm:text-base text-muted-foreground">
