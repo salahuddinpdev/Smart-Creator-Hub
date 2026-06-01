@@ -1,0 +1,1 @@
+- [SmartCreatorTools tool pattern](smartcreatortools-tools.md) — all 50 tools are functional; adding new tools requires 3 steps: component file, tools.ts entry, index.tsx registration.
