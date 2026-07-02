@@ -50,6 +50,8 @@ import {
   ListOrdered,
   TextCursorInput,
   Columns2,
+  FileOutput,
+  Images,
 } from "lucide-react";
 
 export type ToolCategory =
@@ -855,6 +857,36 @@ export const tools: Tool[] = [
     trending: true,
     functional: true,
     accent: "from-blue-500 to-cyan-500",
+  },
+  {
+    slug: "word-to-pdf",
+    name: "Word to PDF",
+    category: "Developer",
+    icon: FileOutput,
+    shortDescription:
+      "Convert .docx Word documents into PDF files instantly — no upload, no server, no account.",
+    longDescription:
+      "Word to PDF converts Microsoft Word documents in the .docx format into clean, downloadable PDF files without sending your file to any server. The entire process runs in your browser using a battle-tested document parsing library that reads the DOCX format natively. Simply upload your file, and the tool extracts the text content, lays it out across A4 pages with proper margins and line spacing, and produces a PDF you can download in seconds. Because nothing ever leaves your device, this tool is safe for confidential business documents, legal contracts, academic submissions, personal records, and any other sensitive material you would not trust to a third-party upload site. It is ideal for sharing formatted documents with colleagues who do not have Microsoft Word installed, submitting assignments in PDF format when your professor requires it, converting resumes and cover letters before emailing them, and archiving important documents in a more universal format. PDFs are readable on every device without specialized software, preserve layout regardless of the viewer's font settings, and cannot be accidentally edited. The conversion is particularly useful for students preparing academic submissions, job applicants converting resumes to the standard recruiter-friendly format, and professionals who need a quick turnaround without paying for a subscription converter.",
+    keywords: ["word to pdf", "docx to pdf", "convert word document", "doc converter", "free pdf converter"],
+    featured: false,
+    trending: true,
+    functional: true,
+    accent: "from-blue-500 to-indigo-500",
+  },
+  {
+    slug: "image-to-pdf",
+    name: "Image to PDF",
+    category: "Developer",
+    icon: Images,
+    shortDescription:
+      "Combine multiple JPG, PNG, or WEBP images into a single multi-page PDF — one image per page.",
+    longDescription:
+      "Image to PDF merges any number of JPG, PNG, or WEBP images into a single PDF document where each image occupies its own A4 page. The tool runs entirely in your browser, so your photos never get uploaded anywhere — ideal for sensitive scans, personal documents, receipts, identification cards, medical images, and anything else you would not paste into a random online form. Upload your images, drag-and-drop or use the arrow buttons to set the exact page order, then download the finished PDF in one click. Each image is automatically centered and scaled to fit the A4 page while preserving its original aspect ratio, so portrait and landscape images both look correct. The tool handles batches of any reasonable size and processes each image at full resolution so the resulting PDF is sharp on screen and in print. Typical use cases include combining scanned contract pages into a single shareable file, merging photo proofs for a client, compiling reference images for a design brief, assembling multiple receipt scans into one expense-claim document, creating photo albums or portfolios, and bundling product shots for a supplier. Because the output is a standard PDF rather than a ZIP of separate images, it is easier to email, attach to forms, and store in document management systems.",
+    keywords: ["image to pdf", "photos to pdf", "jpg to pdf", "png to pdf", "combine images pdf", "merge images"],
+    featured: false,
+    trending: true,
+    functional: true,
+    accent: "from-orange-500 to-rose-500",
   },
 ];
 

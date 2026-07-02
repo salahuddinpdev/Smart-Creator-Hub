@@ -50,6 +50,8 @@ import { NumberBaseConverter } from "./NumberBaseConverter";
 import { JsonToCsv } from "./JsonToCsv";
 import { TextSorter } from "./TextSorter";
 import { AiTextSummarizer } from "./AiTextSummarizer";
+import { WordToPdf } from "./WordToPdf";
+import { ImageToPdf } from "./ImageToPdf";
 
 export const toolComponents: Record<string, ComponentType> = {
   "ai-text-humanizer": AiTextHumanizer,
@@ -103,4 +105,6 @@ export const toolComponents: Record<string, ComponentType> = {
   "json-to-csv": JsonToCsv,
   "text-sorter": TextSorter,
   "ai-text-summarizer": AiTextSummarizer,
+  "word-to-pdf": WordToPdf,
+  "image-to-pdf": ImageToPdf,
 };

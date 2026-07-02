@@ -184,7 +184,7 @@ export function ToolsDirectory() {
           {/* Tool grid */}
           {filtered.length > 0 ? (
             <div
-              className="mt-3 sm:mt-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
+              className="mt-3 sm:mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2.5 sm:gap-4"
               role="list"
               aria-label="Tools"
             >

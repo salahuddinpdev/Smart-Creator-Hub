@@ -153,7 +153,7 @@ export function Home() {
               </Link>
             </div>
             <div
-              className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4"
+              className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4"
               role="list"
               aria-label="Featured tools"
             >
