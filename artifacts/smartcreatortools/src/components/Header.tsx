@@ -51,10 +51,10 @@ export function Header() {
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
             <span className="font-extrabold text-base sm:text-lg gradient-text tracking-tight leading-none hidden xs:block">
-              SmartCreatorTools
+              Salah Tools Hub
             </span>
             <span className="font-extrabold text-base gradient-text tracking-tight leading-none xs:hidden">
-              SCT
+              STH
             </span>
           </Link>
 

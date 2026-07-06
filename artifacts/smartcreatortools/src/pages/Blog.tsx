@@ -7,7 +7,7 @@ export function Blog() {
   return (
     <Layout>
       <Seo
-        title="Blog — Tutorials & Guides for Creators | SmartCreatorTools"
+        title="Blog — Tutorials & Guides for Creators | Salah Tools Hub"
         description="Practical writing on AI tools, image compression, QR codes, developer utilities, and productivity. Tutorials and deep dives for creators, developers, and students."
         keywords={[
           "creator tools blog",
@@ -23,12 +23,12 @@ export function Blog() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Blog",
-          name: "SmartCreatorTools Blog",
+          name: "Salah Tools Hub Blog",
           url: "https://smartcreatortools.com/blog",
           description: "Tutorials, deep dives, and tool roundups for creators, developers, and students.",
           publisher: {
             "@type": "Organization",
-            name: "SmartCreatorTools",
+            name: "Salah Tools Hub",
             url: "https://smartcreatortools.com",
           },
           blogPost: blogPosts.map((p) => ({

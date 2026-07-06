@@ -52,16 +52,16 @@ function PageWrapper({
 export function About() {
   return (
     <PageWrapper
-      title="About SmartCreatorTools"
+      title="About Salah Tools Hub"
       intro="A free, fast hub for the small tools creators reach for every day."
-      seoTitle="About SmartCreatorTools — Free Online Tools for Creators"
-      seoDescription="SmartCreatorTools is a free hub of 20+ utilities for creators, students, and developers — built to be fast, private, and bookmarkable. No signup ever."
-      seoKeywords={["about smartcreatortools", "free tools for creators", "browser tools no signup", "privacy first tools"]}
+      seoTitle="About Salah Tools Hub — Free Online Tools for Creators"
+      seoDescription="Salah Tools Hub is a free hub of 50+ utilities for creators, students, and developers — built to be fast, private, and bookmarkable. No signup ever."
+      seoKeywords={["about salah tools hub", "free tools for creators", "browser tools no signup", "privacy first tools"]}
       canonicalPath="/about"
       breadcrumbName="About"
     >
       <p>
-        SmartCreatorTools was built on a simple frustration: every time we needed a small,
+        Salah Tools Hub was built on a simple frustration: every time we needed a small,
         one-off utility — compress an image, convert a PDF page, generate a QR code, format some
         JSON — we ended up on a website covered in popups, hidden behind a signup, or asking us
         to upgrade after the third use.
@@ -78,10 +78,6 @@ export function About() {
         <li>Speed first — every page should load before you can blink.</li>
         <li>Beautiful enough to want to use, simple enough to never need a tutorial.</li>
       </ul>
-      <p>
-        We support the project with unobtrusive ads in clearly-labeled slots. If those bother
-        you, we get it — but they're what lets us keep every tool free for everyone else.
-      </p>
       <p className="flex items-center gap-2">
         Made with <Heart className="inline w-4 h-4 text-rose-500" aria-label="love" /> for creators worldwide.
       </p>
@@ -94,8 +90,8 @@ export function Privacy() {
     <PageWrapper
       title="Privacy Policy"
       intro="The short version: nothing you type or upload ever leaves your browser."
-      seoTitle="Privacy Policy — SmartCreatorTools"
-      seoDescription="How SmartCreatorTools handles your data: nothing leaves your browser. Our privacy policy in plain English — no personal data collection, no server uploads."
+      seoTitle="Privacy Policy — Salah Tools Hub"
+      seoDescription="How Salah Tools Hub handles your data: nothing leaves your browser. Our privacy policy in plain English — no personal data collection, no server uploads."
       seoKeywords={["privacy policy", "data privacy", "browser tools privacy", "no data collection"]}
       canonicalPath="/privacy"
       breadcrumbName="Privacy Policy"
@@ -106,7 +102,7 @@ export function Privacy() {
       <h2>What we don't do</h2>
       <p>
         We do not collect your text, images, files, code, or any other content you process
-        through SmartCreatorTools. Every tool runs entirely client-side in your browser. We have
+        through Salah Tools Hub. Every tool runs entirely client-side in your browser. We have
         no servers handling your inputs, so there is nothing for us to store, lose, or share.
       </p>
       <h2>What we do collect</h2>
@@ -117,13 +113,12 @@ export function Privacy() {
       <h2>Cookies</h2>
       <p>
         We use a minimal set of essential cookies for site functionality and a single analytics
-        cookie that respects Do Not Track. We do not use ad-targeting cookies. Ads displayed on
-        the site are non-personalized by default.
+        cookie that respects Do Not Track. We do not use ad-targeting cookies.
       </p>
       <h2>Third-party services</h2>
       <p>
-        The site loads Google Fonts (Inter) from Google's CDN. No personal data is shared with
-        Google as part of this. Advertising slots are reserved for non-personalized AdSense ads.
+        The site loads Google Fonts from Google's CDN. No personal data is shared with
+        Google as part of this.
       </p>
       <h2>Your rights</h2>
       <p>
@@ -146,9 +141,9 @@ export function Terms() {
   return (
     <PageWrapper
       title="Terms of Service"
-      intro="The rules for using SmartCreatorTools. We've tried to make them readable."
-      seoTitle="Terms of Service — SmartCreatorTools"
-      seoDescription="Terms of service for using SmartCreatorTools — free online tools for creators, students, and developers. Plain English, no legalese."
+      intro="The rules for using Salah Tools Hub. We've tried to make them readable."
+      seoTitle="Terms of Service — Salah Tools Hub"
+      seoDescription="Terms of service for using Salah Tools Hub — free online tools for creators, students, and developers. Plain English, no legalese."
       seoKeywords={["terms of service", "terms and conditions", "usage terms"]}
       canonicalPath="/terms"
       breadcrumbName="Terms of Service"
@@ -157,12 +152,12 @@ export function Terms() {
         <strong>Effective date:</strong> April 1, 2026
       </p>
       <p>
-        By using SmartCreatorTools, you agree to these terms. If you don't agree, please don't
+        By using Salah Tools Hub, you agree to these terms. If you don't agree, please don't
         use the site.
       </p>
       <h2>Acceptable use</h2>
       <p>
-        Use SmartCreatorTools for any lawful purpose. Don't use it to harm others, infringe on
+        Use Salah Tools Hub for any lawful purpose. Don't use it to harm others, infringe on
         intellectual property, or generate content that violates the laws of your jurisdiction.
       </p>
       <h2>No warranty</h2>
@@ -179,7 +174,7 @@ export function Terms() {
       </p>
       <h2>Intellectual property</h2>
       <p>
-        The site design, code, and content are owned by SmartCreatorTools. The output you create
+        The site design, code, and content are owned by Salah Tools Hub. The output you create
         using the tools is yours.
       </p>
       <h2>Changes</h2>
@@ -195,9 +190,9 @@ export function Contact() {
   return (
     <>
       <Seo
-        title="Contact SmartCreatorTools — Get in Touch"
-        description="Get in touch with the SmartCreatorTools team. Feature requests, bug reports, partnerships, and more. We read every message."
-        keywords={["contact smartcreatortools", "support", "feature request", "bug report"]}
+        title="Contact Salah Tools Hub — Get in Touch"
+        description="Get in touch with the Salah Tools Hub team. Feature requests, bug reports, partnerships, and more. We read every message."
+        keywords={["contact salah tools hub", "support", "feature request", "bug report"]}
         canonicalPath="/contact"
         breadcrumbs={[{ name: "Contact", href: "/contact" }]}
       />
@@ -214,14 +209,14 @@ export function Contact() {
 
             <div className="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
               <a
-                href="mailto:hello@smartcreatortools.com"
+                href="mailto:hello@salahtools.com"
                 className="glass rounded-2xl p-5 sm:p-6 card-lift block"
-                aria-label="Send us an email at hello@smartcreatortools.com"
+                aria-label="Send us an email"
               >
                 <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-primary" aria-hidden="true" />
                 <h2 className="mt-3 sm:mt-4 font-bold text-sm sm:text-base">Email us</h2>
                 <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
-                  hello@smartcreatortools.com — for anything.
+                  hello@salahtools.com — for anything.
                 </p>
               </a>
               <a

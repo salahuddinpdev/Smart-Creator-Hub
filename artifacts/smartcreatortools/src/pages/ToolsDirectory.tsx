@@ -43,7 +43,7 @@ export function ToolsDirectory() {
   return (
     <Layout>
       <Seo
-        title="All 50 Free Online Tools — SmartCreatorTools"
+        title="All 50 Free Online Tools — Salah Tools Hub"
         description="Browse 50+ free online tools for writing, images, development, students, and productivity. AI text humanizer, image compressor, QR code generator, JSON formatter, password generator, regex tester and more. No signup required — runs in your browser."
         keywords={[
           "free online tools",
@@ -64,7 +64,7 @@ export function ToolsDirectory() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Free Online Tools — SmartCreatorTools",
+          name: "Free Online Tools — Salah Tools Hub",
           description: "50+ free online tools for creators, students, and developers",
           url: "https://smartcreatortools.com/tools",
           numberOfItems: tools.length,

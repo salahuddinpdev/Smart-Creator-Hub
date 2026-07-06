@@ -3,7 +3,6 @@ import { Link, useParams } from "wouter";
 import { ArrowLeft, ChevronRight, Sparkles } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
-import { AdSlot } from "@/components/AdSlot";
 import { ToolCard } from "@/components/ToolCard";
 import { getToolBySlug, tools } from "@/data/tools";
 import { toolComponents } from "@/tools";
@@ -47,7 +46,7 @@ export function ToolDetail() {
   return (
     <Layout>
       <Seo
-        title={`${tool.name} — Free Online Tool | SmartCreatorTools`}
+        title={`${tool.name} — Free Online Tool | Salah Tools Hub`}
         description={`${tool.shortDescription} Free, no signup, runs entirely in your browser. No upload to a server.`}
         keywords={allKeywords}
         canonicalPath={`/tools/${tool.slug}`}
@@ -73,13 +72,13 @@ export function ToolDetail() {
           },
           publisher: {
             "@type": "Organization",
-            name: "SmartCreatorTools",
+            name: "Salah Tools Hub",
             url: "https://smartcreatortools.com",
           },
         }}
       />
 
-      <section className="pt-6 sm:pt-8 pb-16 sm:pb-20">
+      <section className="pt-4 sm:pt-6 pb-10 sm:pb-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
           {/* Breadcrumb */}
@@ -98,16 +97,16 @@ export function ToolDetail() {
             <span className="text-foreground font-medium truncate" aria-current="page">{tool.name}</span>
           </nav>
 
-          <div className="mt-6 sm:mt-8 grid lg:grid-cols-[1fr_288px] xl:grid-cols-[1fr_320px] gap-6 sm:gap-8 items-start">
+          <div className="mt-4 sm:mt-5 grid lg:grid-cols-[1fr_272px] xl:grid-cols-[1fr_296px] gap-5 sm:gap-6 items-start">
             {/* Main column */}
-            <div className="space-y-6 sm:space-y-8 min-w-0">
+            <div className="space-y-4 sm:space-y-5 min-w-0">
               {/* Tool header */}
-              <header className="flex items-start gap-4 sm:gap-5">
+              <header className="flex items-start gap-3 sm:gap-4">
                 <div
-                  className={`h-14 w-14 sm:h-16 sm:w-16 rounded-2xl bg-gradient-to-br grid place-items-center text-white shadow-xl shrink-0 ${tool.accent}`}
+                  className={`h-12 w-12 sm:h-14 sm:w-14 rounded-2xl bg-gradient-to-br grid place-items-center text-white shadow-xl shrink-0 ${tool.accent}`}
                   aria-hidden="true"
                 >
-                  <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
@@ -121,10 +120,10 @@ export function ToolDetail() {
                       </span>
                     )}
                   </div>
-                  <h1 className="mt-1 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
+                  <h1 className="mt-1 text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-tight">
                     {tool.name}
                   </h1>
-                  <p className="mt-1.5 sm:mt-2 text-sm sm:text-lg text-muted-foreground leading-relaxed">
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                     {tool.shortDescription}
                   </p>
                 </div>
@@ -132,34 +131,32 @@ export function ToolDetail() {
 
               {/* Tool component */}
               <article
-                className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 overflow-hidden"
+                className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-5 overflow-hidden"
                 aria-label={`${tool.name} tool interface`}
               >
                 {ToolComponent ? <ToolComponent /> : <PlaceholderTool toolName={tool.name} />}
               </article>
 
-              <AdSlot variant="in-content" />
-
               {/* About section */}
               <section
                 aria-labelledby="about-this-tool"
-                className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10"
+                className="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6"
               >
                 <h2
                   id="about-this-tool"
-                  className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight"
+                  className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight"
                 >
                   About <span className="gradient-text">{tool.name}</span>
                 </h2>
-                <p className="mt-4 sm:mt-5 text-sm sm:text-base leading-[1.8] sm:leading-[1.85] text-foreground/80">
+                <p className="mt-3 text-sm leading-[1.8] text-foreground/80">
                   {tool.longDescription}
                 </p>
-                <div className="mt-5 sm:mt-6 flex flex-wrap gap-2" role="list" aria-label="Keywords">
+                <div className="mt-4 flex flex-wrap gap-2" role="list" aria-label="Keywords">
                   {tool.keywords.map((k) => (
                     <span
                       key={k}
                       role="listitem"
-                      className="rounded-full bg-muted/60 px-2.5 sm:px-3 py-1 text-[10px] sm:text-xs font-medium text-muted-foreground"
+                      className="rounded-full bg-muted/60 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-muted-foreground"
                     >
                       #{k}
                     </span>
@@ -170,8 +167,8 @@ export function ToolDetail() {
               {/* Related tools */}
               {related.length > 0 && (
                 <section aria-labelledby="related-tools-heading">
-                  <h2 id="related-tools-heading" className="text-lg sm:text-xl font-extrabold tracking-tight">Related tools</h2>
-                  <div className="mt-3 sm:mt-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <h2 id="related-tools-heading" className="text-base sm:text-lg font-extrabold tracking-tight">Related tools</h2>
+                  <div className="mt-3 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3">
                     {related.map((t) => (
                       <ToolCard key={t.slug} tool={t} />
                     ))}
@@ -181,13 +178,12 @@ export function ToolDetail() {
             </div>
 
             {/* Sidebar */}
-            <aside className="space-y-4 sm:space-y-5 lg:sticky lg:top-24 min-w-0" aria-label="Sidebar">
-              <AdSlot variant="sidebar" />
+            <aside className="space-y-4 lg:sticky lg:top-20 min-w-0" aria-label="Sidebar">
               <div className="glass rounded-2xl p-4 sm:p-5">
-                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Why creators love it
                 </h3>
-                <ul className="mt-3 space-y-2.5 text-sm">
+                <ul className="mt-3 space-y-2 text-sm">
                   {[
                     "Runs entirely in your browser",
                     "No signup, no email required",

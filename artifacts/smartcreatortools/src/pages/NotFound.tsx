@@ -5,9 +5,9 @@ import { ArrowLeft } from "lucide-react";
 
 export function NotFound() {
   return (
-    <Layout showHeaderAd={false} showFooterAd={false}>
+    <Layout>
       <Seo
-        title="Not Found — SmartCreatorTools"
+        title="Not Found — Salah Tools Hub"
         description="The page you're looking for doesn't exist."
       />
       <section className="py-32">

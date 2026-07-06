@@ -21,7 +21,7 @@ const HOW_STEPS = [
   {
     icon: Lock,
     title: "Your data stays private",
-    body: "Your input never leaves your device. Use SmartCreatorTools safely on confidential drafts, client files, and sensitive data.",
+    body: "Your input never leaves your device. Use Salah Tools Hub safely on confidential drafts, client files, and sensitive data.",
   },
 ];
 
@@ -36,7 +36,7 @@ export function Home() {
   return (
     <Layout>
       <Seo
-        title="SmartCreatorTools — 50+ Free Online Tools for Creators, Students & Developers"
+        title="Salah Tools Hub — 50+ Free Online Tools for Creators, Students & Developers"
         description="Free, fast, no-signup tools: AI Text Humanizer, Image Compressor, QR Code Generator, Word Counter, PDF to PNG, JSON Formatter, Password Generator, Regex Tester and more. Every tool runs 100% in your browser."
         keywords={[
           "free online tools",
@@ -62,7 +62,7 @@ export function Home() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "SmartCreatorTools",
+          name: "Salah Tools Hub",
           url: "https://smartcreatortools.com",
           description:
             "50+ free online tools for creators, students, and developers. No signup, runs in your browser.",
@@ -197,7 +197,7 @@ export function Home() {
               Built for the way creators actually work — fast, private, and 100% free.
             </p>
           </div>
-          <ol className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5" aria-label="Steps to use SmartCreatorTools">
+          <ol className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5" aria-label="Steps to use Salah Tools Hub">
             {HOW_STEPS.map((s, i) => (
               <li key={s.title} className="glass rounded-2xl p-6 sm:p-7 relative list-none">
                 <div

@@ -5,7 +5,7 @@ export function MetaTagGenerator() {
   const [title, setTitle] = useState("My Awesome Page");
   const [desc, setDesc] = useState("A brief description of this page for search engines and social media.");
   const [keywords, setKeywords] = useState("keyword one, keyword two, keyword three");
-  const [author, setAuthor] = useState("SmartCreatorTools");
+  const [author, setAuthor] = useState("Salah Tools Hub");
   const [url, setUrl] = useState("https://example.com/page");
   const [image, setImage] = useState("https://example.com/og-image.jpg");
   const [twitter, setTwitter] = useState("@handle");

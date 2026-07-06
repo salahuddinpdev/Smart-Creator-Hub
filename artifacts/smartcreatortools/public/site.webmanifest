@@ -1,7 +1,7 @@
 {
-  "name": "SmartCreatorTools",
-  "short_name": "SCT",
-  "description": "20+ free online tools for creators, students, and developers. No signup required.",
+  "name": "Salah Tools Hub",
+  "short_name": "STH",
+  "description": "50+ free online tools for creators, students, and developers. No signup required.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f3ff",

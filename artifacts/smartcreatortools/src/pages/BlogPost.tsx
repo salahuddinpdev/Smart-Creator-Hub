@@ -3,7 +3,6 @@ import { Link, useParams } from "wouter";
 import { ChevronRight, Clock, Calendar, User } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
-import { AdSlot } from "@/components/AdSlot";
 import { blogPosts, getPostBySlug } from "@/data/blog";
 import { NotFound } from "./NotFound";
 
@@ -22,7 +21,7 @@ export function BlogPost() {
   return (
     <Layout>
       <Seo
-        title={`${post.title} — SmartCreatorTools Blog`}
+        title={`${post.title} — Salah Tools Hub Blog`}
         description={post.excerpt}
         keywords={[
           post.category.toLowerCase(),
@@ -51,7 +50,7 @@ export function BlogPost() {
           },
           publisher: {
             "@type": "Organization",
-            name: "SmartCreatorTools",
+            name: "Salah Tools Hub",
             url: "https://smartcreatortools.com",
             logo: {
               "@type": "ImageObject",
@@ -124,10 +123,6 @@ export function BlogPost() {
             {post.content.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
-          </div>
-
-          <div className="mt-8 sm:mt-10">
-            <AdSlot variant="in-content" />
           </div>
         </div>
       </article>

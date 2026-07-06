@@ -12,11 +12,11 @@ export function Footer() {
 
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
-              <Link href="/" className="flex items-center gap-2" aria-label="SmartCreatorTools home">
+              <Link href="/" className="flex items-center gap-2" aria-label="Salah Tools Hub home">
                 <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl gradient-bg grid place-items-center shadow-lg shadow-primary/30 shrink-0">
                   <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" aria-hidden="true" />
                 </div>
-                <span className="font-extrabold text-base sm:text-lg gradient-text">SmartCreatorTools</span>
+                <span className="font-extrabold text-base sm:text-lg gradient-text">Salah Tools Hub</span>
               </Link>
               <p className="mt-3 sm:mt-4 text-sm text-muted-foreground leading-relaxed">
                 50+ free, fast, no-signup tools for creators, students, and developers. Everything runs in your browser.
@@ -119,7 +119,7 @@ export function Footer() {
 
           <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-border/50 flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-between">
             <p className="text-xs text-muted-foreground text-center sm:text-left">
-              © {new Date().getFullYear()} SmartCreatorTools. All rights reserved.
+              © {new Date().getFullYear()} Salah Tools Hub. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground text-center sm:text-right">
               Made for creators · Free forever · No signup, ever
