@@ -15,11 +15,11 @@ paths = [ "/" ]
 localPort = 23986
 
 [services.development]
-run = "pnpm --filter smartcreatortools run dev"
+run = "pnpm run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "smartcreatortools", "run", "build" ]
-publicDir = "artifacts/smartcreatortools/dist"
+build = [ "pnpm", "run", "build" ]
+publicDir = "dist"
 serve = "static"
 
 [[services.production.rewrites]]
