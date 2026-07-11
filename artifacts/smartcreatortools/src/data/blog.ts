@@ -24,7 +24,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       "AI detectors are everywhere. Universities are using them. Marketing platforms are flagging blog drafts. Hiring managers are running cover letters through them. The strange thing is, the detectors themselves are wildly inconsistent — they flag the U.S. Constitution as AI-generated and clear obviously machine-written copy without blinking.",
       "If you use AI as a thinking partner — which most of us do now — you do not need to game detectors. You need to make the writing actually sound like you. The two things look similar from the outside, but the second is a writing skill, and the first is a losing arms race.",
-      "Here is what we have seen work consistently in 2026 across thousands of pieces of content put through the SmartCreatorTools AI Text Humanizer.",
+      "Here is what we have seen work consistently in 2026 across thousands of pieces of content put through the Salah Tools Hub AI Text Humanizer.",
       "Start by drafting in your own voice for the first two sentences of every section. Whatever the AI gives you, throw away the opener and rewrite it. Detectors weight openings heavily because they are the part of a paragraph that humans tend to vary the most.",
       "Replace formal connectives. Words like additionally, furthermore, moreover, subsequently, and consequently almost never appear in human writing at the rate language models use them. Swap them for plus, also, then, so, and. The Humanizer does this automatically, but training your eye to catch them is worth doing.",
       "Use contractions ruthlessly. Native speakers contract almost everything in casual prose: do not becomes don't, it is becomes it's, you are becomes you're. AI tends to leave them expanded, especially in formal-feeling content. Contractions alone are enough to flip many detectors.",
@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
       "Third: a code-to-image tool. Indie hackers live on Twitter and LinkedIn. A beautifully formatted code snippet gets ten times the engagement of a screenshot of a terminal. This is true even if you do not write code yourself — sharing your config file or a pricing structure as a polished image works just as well.",
       "Fourth: a JSON formatter. Anyone who has wrestled with a third-party API knows this one. Stripe webhooks, Shopify exports, Linear payloads — they all come back as a wall of unindented JSON, and a good formatter is the difference between a frustrating debugging session and a calm one.",
       "Rounding out the list: word counters for landing page copy, color pickers for theme tweaks, password generators for client account handoffs, PDF tools for contract pages, Markdown converters for changelog drafts, and unit converters for the inevitable international shipping calculations.",
-      "The pattern is clear. Founders do not need monolithic suites. They need small tools that load instantly, work without a login, and let them get back to building. That is the philosophy SmartCreatorTools is built on.",
+      "The pattern is clear. Founders do not need monolithic suites. They need small tools that load instantly, work without a login, and let them get back to building. That is the philosophy Salah Tools Hub is built on.",
     ],
   },
   {
@@ -109,7 +109,7 @@ export const blogPosts: BlogPost[] = [
       "A GPA predictor turns abstract anxiety into a concrete plan. Wondering whether you can recover a 3.2 to a 3.5 by graduation? Plug in the numbers and find out in five seconds whether your remaining semesters need an A average or a B-plus average. That information changes which classes you take, whether you retake a course, and how you negotiate with advisors.",
       "A case converter saves embarrassing typos when you copy headings out of slides into your essay. A markdown to HTML converter helps when you are submitting to a learning management system that supports Markdown but you drafted in a different format. A unit converter is essential for any STEM student dealing with mixed-unit problem sets.",
       "Add a code-to-image tool if you take any computer science classes — pasting beautifully formatted code into a slide deck makes student presentations look genuinely professional. Add a JSON formatter if you ever debug an API for a class project.",
-      "The throughline is simple. Free, fast, no-signup tools win in college because students are time-poor and budget-strapped. Bookmark a hub like SmartCreatorTools and you will reach for it every week of every semester.",
+      "The throughline is simple. Free, fast, no-signup tools win in college because students are time-poor and budget-strapped. Bookmark a hub like Salah Tools Hub and you will reach for it every week of every semester.",
     ],
   },
   {
