@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Sparkles, Twitter, Github, Instagram, Youtube } from "lucide-react";
+import { Twitter, Github, Instagram, Youtube } from "lucide-react";
 import { tools } from "@/data/tools";
 
 export function Footer() {
@@ -13,9 +13,12 @@ export function Footer() {
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2" aria-label="Salah Tools Hub home">
-                <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl gradient-bg grid place-items-center shadow-lg shadow-primary/30 shrink-0">
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" aria-hidden="true" />
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="Salah Tools Hub logo"
+                  className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 object-contain"
+                  aria-hidden="true"
+                />
                 <span className="font-extrabold text-base sm:text-lg gradient-text">Salah Tools Hub</span>
               </Link>
               <p className="mt-3 sm:mt-4 text-sm text-muted-foreground leading-relaxed">

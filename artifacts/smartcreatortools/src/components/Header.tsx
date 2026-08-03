@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -47,9 +47,11 @@ export function Header() {
         <div className="glass-strong rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0 min-touch">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl gradient-bg grid place-items-center shadow-lg shadow-primary/30 shrink-0">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-            </div>
+            <img
+              src="/logo.png"
+              alt="Salah Tools Hub logo"
+              className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 object-contain"
+            />
             <span className="font-extrabold text-base sm:text-lg gradient-text tracking-tight leading-none hidden xs:block">
               Salah Tools Hub
             </span>
