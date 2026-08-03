@@ -58,7 +58,7 @@ export function ToolDetail() {
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: tool.name,
-          url: `https://smartcreatortools.com/tools/${tool.slug}`,
+          url: `https://salahtoolshub.com/tools/${tool.slug}`,
           applicationCategory: "UtilityApplication",
           operatingSystem: "Web",
           browserRequirements: "Requires JavaScript",
@@ -73,7 +73,7 @@ export function ToolDetail() {
           publisher: {
             "@type": "Organization",
             name: "Salah Tools Hub",
-            url: "https://smartcreatortools.com",
+            url: "https://salahtoolshub.com",
           },
         }}
       />

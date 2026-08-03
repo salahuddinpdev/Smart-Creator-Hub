@@ -5,7 +5,7 @@ Allow: /
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://smartcreatortools.com/sitemap.xml
+Sitemap: https://salahtoolshub.com/sitemap.xml
 
 # Crawl-delay for polite bots
 Crawl-delay: 1

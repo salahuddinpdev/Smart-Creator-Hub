@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://smartcreatortools.com";
+const SITE_URL = "https://salahtoolshub.com";
 const SITE_NAME = "Salah Tools Hub";
 const TWITTER_HANDLE = "@SalahToolsHub";
 const OG_IMAGE = `${SITE_URL}/opengraph.jpg`;

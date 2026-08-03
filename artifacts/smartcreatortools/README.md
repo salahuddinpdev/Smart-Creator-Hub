@@ -1,4 +1,4 @@
-# SmartCreatorTools
+# Salah Tools Hub
 
 A free, fast, no-signup hub of 53+ online tools for creators, students, and developers. Every tool runs entirely in the browser — no server, no account, no file uploads.
 
@@ -15,7 +15,7 @@ A free, fast, no-signup hub of 53+ online tools for creators, students, and deve
 ## Project Structure
 
 ```
-smartcreatortools/
+salahtoolshub/
 ├── public/             # Static assets (favicon, manifest)
 ├── src/
 │   ├── components/     # Reusable UI components (Header, Footer, ToolCard, etc.)

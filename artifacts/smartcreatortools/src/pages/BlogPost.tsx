@@ -51,17 +51,17 @@ export function BlogPost() {
           publisher: {
             "@type": "Organization",
             name: "Salah Tools Hub",
-            url: "https://smartcreatortools.com",
+            url: "https://salahtoolshub.com",
             logo: {
               "@type": "ImageObject",
-              url: "https://smartcreatortools.com/favicon.svg",
+              url: "https://salahtoolshub.com/favicon.svg",
             },
           },
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://smartcreatortools.com/blog/${post.slug}`,
+            "@id": `https://salahtoolshub.com/blog/${post.slug}`,
           },
-          image: "https://smartcreatortools.com/opengraph.jpg",
+          image: "https://salahtoolshub.com/opengraph.jpg",
           articleSection: post.category,
           inLanguage: "en-US",
         }}

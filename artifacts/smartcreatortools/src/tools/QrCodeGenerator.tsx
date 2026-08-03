@@ -3,7 +3,7 @@ import QRCode from "qrcode";
 import { Download, QrCode as QrIcon } from "lucide-react";
 
 export function QrCodeGenerator() {
-  const [text, setText] = useState("https://smartcreatortools.com");
+  const [text, setText] = useState("https://salahtoolshub.com");
   const [fg, setFg] = useState("#7c3aed");
   const [bg, setBg] = useState("#ffffff");
   const [size, setSize] = useState(512);

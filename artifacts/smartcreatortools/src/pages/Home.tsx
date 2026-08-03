@@ -63,14 +63,14 @@ export function Home() {
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Salah Tools Hub",
-          url: "https://smartcreatortools.com",
+          url: "https://salahtoolshub.com",
           description:
             "50+ free online tools for creators, students, and developers. No signup, runs in your browser.",
           potentialAction: {
             "@type": "SearchAction",
             target: {
               "@type": "EntryPoint",
-              urlTemplate: "https://smartcreatortools.com/tools?q={search_term_string}",
+              urlTemplate: "https://salahtoolshub.com/tools?q={search_term_string}",
             },
             "query-input": "required name=search_term_string",
           },

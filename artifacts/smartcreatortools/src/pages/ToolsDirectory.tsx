@@ -66,14 +66,14 @@ export function ToolsDirectory() {
           "@type": "ItemList",
           name: "Free Online Tools — Salah Tools Hub",
           description: "50+ free online tools for creators, students, and developers",
-          url: "https://smartcreatortools.com/tools",
+          url: "https://salahtoolshub.com/tools",
           numberOfItems: tools.length,
           itemListElement: tools.slice(0, 15).map((t, i) => ({
             "@type": "ListItem",
             position: i + 1,
             name: t.name,
             description: t.shortDescription,
-            url: `https://smartcreatortools.com/tools/${t.slug}`,
+            url: `https://salahtoolshub.com/tools/${t.slug}`,
           })),
         }}
       />
