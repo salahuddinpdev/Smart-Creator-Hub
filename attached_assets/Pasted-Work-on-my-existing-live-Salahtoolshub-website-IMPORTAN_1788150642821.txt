@@ -1,0 +1,61 @@
+Work on my existing live Salahtoolshub website.
+
+IMPORTANT:
+Do NOT redesign the website.
+Do NOT change the UI/UX, colors, fonts, layout, components or styling.
+Do NOT change or break any existing tool functionality or logic.
+Do NOT remove the existing About sections under tools.
+Do NOT delete working pages or links.
+Do NOT rebuild the website.
+Only make the necessary SEO and technical fixes listed below.
+
+TASKS:
+
+1. TECHNICAL SEO
+- Optimize the important tool pages for Google.
+- Give every important tool page a unique SEO title, meta description and proper H1.
+- Use natural, relevant keywords based on each tool's actual purpose.
+- Do NOT use keyword stuffing or spam content.
+- Keep the existing useful About content.
+
+2. CANONICAL URLS
+- Audit all important pages.
+- Each individual tool page must have its own self-referencing canonical URL.
+- Individual tool pages must NOT use the homepage as their canonical.
+- Homepage must have its own correct canonical URL.
+- Fix the canonical issues previously detected on approximately 66 URLs.
+
+3. INTERNAL LINKS / URL STRUCTURE
+- Keep all currently working navigation.
+- Make sure Home → Tools → Individual Tool → Related Tools links work correctly.
+- Replace unnecessary redirecting internal links with the final canonical URLs where appropriate.
+- Remove only genuine duplicate/unnecessary links if they exist.
+- Do NOT blindly delete links.
+
+4. SITEMAP & INDEXING
+- Check sitemap.xml and include the correct final canonical/indexable URLs.
+- Do not include unnecessary redirected or duplicate URLs.
+- Check robots.txt and accidental noindex settings.
+- Investigate the 7 currently non-indexed/redirect-related pages and fix them only if there is a genuine technical issue.
+- Do NOT force-index pages that should legitimately be redirected or excluded.
+
+5. GOOGLE / ADSENSE READINESS
+- Check the website for basic technical and content requirements useful for Google Search and AdSense readiness.
+- Do not guarantee ranking or AdSense approval.
+- Do not add hidden text, fake content, keyword stuffing or SEO spam.
+
+BEFORE MAKING CHANGES:
+First inspect the existing project and identify the exact files that need changes.
+
+AFTER CHANGES:
+Test the complete website and confirm:
+- All tools still work.
+- Home, Tools, Blog, About and Contact still work.
+- Navigation still works.
+- No design/UI changes were made.
+- No existing tool logic was broken.
+- Canonical URLs are correct.
+- Sitemap is correct.
+- Important pages are indexable.
+
+Make ONLY the necessary changes and leave everything else untouched.

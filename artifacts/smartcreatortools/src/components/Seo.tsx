@@ -83,7 +83,7 @@ export function Seo({
     document.title = title;
 
     setMeta("description", trimmedDesc);
-    if (keywords?.length) setMeta("keywords", keywords.join(", "));
+    setMeta("keywords", keywords?.join(", ") ?? "");
     setMeta("author", SITE_NAME);
     setMeta("robots", noIndex ? "noindex, nofollow" : "index, follow");
     setMeta("googlebot", noIndex ? "noindex, nofollow" : "index, follow");

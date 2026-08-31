@@ -9,6 +9,7 @@ export function NotFound() {
       <Seo
         title="Not Found — Salah Tools Hub"
         description="The page you're looking for doesn't exist."
+        noIndex
       />
       <section className="py-32">
         <div className="mx-auto max-w-2xl px-4 text-center">

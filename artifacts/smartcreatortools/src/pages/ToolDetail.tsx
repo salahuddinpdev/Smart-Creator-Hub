@@ -5,6 +5,7 @@ import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
 import { ToolCard } from "@/components/ToolCard";
 import { getToolBySlug, tools } from "@/data/tools";
+import { toolSeoData } from "@/data/toolSeo";
 import { toolComponents } from "@/tools";
 import { PlaceholderTool } from "@/tools/PlaceholderTool";
 import { NotFound } from "./NotFound";
@@ -35,19 +36,23 @@ export function ToolDetail() {
     .slice(0, 4);
 
   const categoryKws = CATEGORY_KEYWORDS[tool.category] ?? [];
-  const allKeywords = [
-    ...tool.keywords,
+  const seo = toolSeoData[tool.slug];
+  const allKeywords = Array.from(new Set([
+    ...(seo?.keywords ?? tool.keywords),
     `${tool.name.toLowerCase()} free`,
     `${tool.name.toLowerCase()} online`,
     `${tool.name.toLowerCase()} no signup`,
     ...categoryKws,
-  ];
+  ]));
 
   return (
     <Layout>
       <Seo
-        title={`${tool.name} — Free Online Tool | Salah Tools Hub`}
-        description={`${tool.shortDescription} Free, no signup, runs entirely in your browser. No upload to a server.`}
+        title={seo?.seoTitle ?? `${tool.name} — Free Online Tool | Salah Tools Hub`}
+        description={
+          seo?.seoDescription ??
+          `${tool.shortDescription} Free, no signup, runs entirely in your browser. No upload to a server.`
+        }
         keywords={allKeywords}
         canonicalPath={`/tools/${tool.slug}`}
         breadcrumbs={[
@@ -56,25 +61,44 @@ export function ToolDetail() {
         ]}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "WebApplication",
-          name: tool.name,
-          url: `https://salahtoolshub.com/tools/${tool.slug}`,
-          applicationCategory: "UtilityApplication",
-          operatingSystem: "Web",
-          browserRequirements: "Requires JavaScript",
-          description: tool.shortDescription,
-          featureList: tool.keywords.join(", "),
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
-          },
-          publisher: {
-            "@type": "Organization",
-            name: "Salah Tools Hub",
-            url: "https://salahtoolshub.com",
-          },
+          "@graph": [
+            {
+              "@type": "WebApplication",
+              name: tool.name,
+              url: `https://salahtoolshub.com/tools/${tool.slug}`,
+              applicationCategory: "UtilityApplication",
+              operatingSystem: "Web",
+              browserRequirements: "Requires JavaScript",
+              description: seo?.seoDescription ?? tool.shortDescription,
+              featureList: (seo?.keywords ?? tool.keywords).join(", "),
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Salah Tools Hub",
+                url: "https://salahtoolshub.com",
+              },
+            },
+            ...(seo?.faq?.length
+              ? [
+                  {
+                    "@type": "FAQPage",
+                    mainEntity: seo.faq.map(({ q, a }) => ({
+                      "@type": "Question",
+                      name: q,
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: a,
+                      },
+                    })),
+                  },
+                ]
+              : []),
+          ],
         }}
       />
 
