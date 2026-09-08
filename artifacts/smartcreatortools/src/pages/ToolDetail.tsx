@@ -6,6 +6,7 @@ import { Seo } from "@/components/Seo";
 import { ToolCard } from "@/components/ToolCard";
 import { getToolBySlug, tools } from "@/data/tools";
 import { toolSeoData } from "@/data/toolSeo";
+import { absoluteUrl, normalizeSeoTitle } from "@/seo/metadata";
 import { toolComponents } from "@/tools";
 import { PlaceholderTool } from "@/tools/PlaceholderTool";
 import { NotFound } from "./NotFound";
@@ -48,7 +49,7 @@ export function ToolDetail() {
   return (
     <Layout>
       <Seo
-        title={seo?.seoTitle ?? `${tool.name} — Free Online Tool | Salah Tools Hub`}
+        title={normalizeSeoTitle(seo?.seoTitle ?? `${tool.name} — Free Online Tool | Salah Tools Hub`)}
         description={
           seo?.seoDescription ??
           `${tool.shortDescription} Free, no signup, runs entirely in your browser. No upload to a server.`
@@ -65,7 +66,7 @@ export function ToolDetail() {
             {
               "@type": "WebApplication",
               name: tool.name,
-              url: `https://salahtoolshub.com/tools/${tool.slug}`,
+              url: absoluteUrl(`/tools/${tool.slug}`),
               applicationCategory: "UtilityApplication",
               operatingSystem: "Web",
               browserRequirements: "Requires JavaScript",
@@ -80,7 +81,7 @@ export function ToolDetail() {
               publisher: {
                 "@type": "Organization",
                 name: "Salah Tools Hub",
-                url: "https://salahtoolshub.com",
+                url: absoluteUrl("/"),
               },
             },
             ...(seo?.faq?.length

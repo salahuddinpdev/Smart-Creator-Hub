@@ -5,6 +5,7 @@ import { Seo } from "@/components/Seo";
 import { ToolCard } from "@/components/ToolCard";
 import { tools, TOOL_CATEGORIES, type ToolCategory } from "@/data/tools";
 import { cn } from "@/lib/utils";
+import { absoluteUrl } from "@/seo/metadata";
 
 type Filter = "All" | ToolCategory;
 
@@ -66,14 +67,14 @@ export function ToolsDirectory() {
           "@type": "ItemList",
           name: "Free Online Tools — Salah Tools Hub",
           description: "50+ free online tools for creators, students, and developers",
-          url: "https://salahtoolshub.com/tools",
+          url: absoluteUrl("/tools"),
           numberOfItems: tools.length,
           itemListElement: tools.slice(0, 15).map((t, i) => ({
             "@type": "ListItem",
             position: i + 1,
             name: t.name,
             description: t.shortDescription,
-            url: `https://salahtoolshub.com/tools/${t.slug}`,
+            url: absoluteUrl(`/tools/${t.slug}`),
           })),
         }}
       />

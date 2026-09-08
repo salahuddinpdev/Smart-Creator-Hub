@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
 import { blogPosts } from "@/data/blog";
+import { absoluteUrl } from "@/seo/metadata";
 
 export function Blog() {
   return (
@@ -24,18 +25,18 @@ export function Blog() {
           "@context": "https://schema.org",
           "@type": "Blog",
           name: "Salah Tools Hub Blog",
-          url: "https://salahtoolshub.com/blog",
+          url: absoluteUrl("/blog"),
           description: "Tutorials, deep dives, and tool roundups for creators, developers, and students.",
           publisher: {
             "@type": "Organization",
             name: "Salah Tools Hub",
-            url: "https://salahtoolshub.com",
+            url: absoluteUrl("/"),
           },
           blogPost: blogPosts.map((p) => ({
             "@type": "BlogPosting",
             headline: p.title,
             description: p.excerpt,
-            url: `https://salahtoolshub.com/blog/${p.slug}`,
+            url: absoluteUrl(`/blog/${p.slug}`),
             datePublished: p.date,
             author: { "@type": "Person", name: p.author },
           })),

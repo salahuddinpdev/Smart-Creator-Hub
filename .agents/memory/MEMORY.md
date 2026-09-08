@@ -1,1 +1,2 @@
 - [SmartCreatorTools tool pattern](smartcreatortools-tools.md) — all 50 tools are functional; adding new tools requires 3 steps: component file, tools.ts entry, index.tsx registration.
+- [Static SEO shells](static-seo-shells.md) — SPA routes need route-specific metadata and content in the initial HTML for crawlers.

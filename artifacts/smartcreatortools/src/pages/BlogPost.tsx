@@ -4,6 +4,7 @@ import { ChevronRight, Clock, Calendar, User } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
 import { blogPosts, getPostBySlug } from "@/data/blog";
+import { absoluteUrl } from "@/seo/metadata";
 import { NotFound } from "./NotFound";
 
 export function BlogPost() {
@@ -51,17 +52,17 @@ export function BlogPost() {
           publisher: {
             "@type": "Organization",
             name: "Salah Tools Hub",
-            url: "https://salahtoolshub.com",
+            url: absoluteUrl("/"),
             logo: {
               "@type": "ImageObject",
-              url: "https://salahtoolshub.com/favicon.svg",
+              url: absoluteUrl("/favicon.svg"),
             },
           },
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://salahtoolshub.com/blog/${post.slug}`,
+            "@id": absoluteUrl(`/blog/${post.slug}`),
           },
-          image: "https://salahtoolshub.com/opengraph.jpg",
+          image: absoluteUrl("/opengraph.jpg"),
           articleSection: post.category,
           inLanguage: "en-US",
         }}

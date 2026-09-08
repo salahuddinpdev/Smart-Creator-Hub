@@ -1,0 +1,100 @@
+IMPORTANT: Perform a careful SEO/technical SEO repair on the EXISTING production website SalahtoolsHub.
+
+I am attaching an Ahrefs Site Audit screenshot showing the CURRENT LIVE issues. Use the screenshot as evidence and investigate the ROOT CAUSE before making changes.
+
+CRITICAL SAFETY RULES:
+- DO NOT redesign the website.
+- DO NOT change the existing UI, layout, styling, colors, fonts, header, footer, navigation, tool cards, or responsive design.
+- DO NOT change any tool functionality, calculations, business logic, routing behavior, or existing working features.
+- DO NOT delete or replace existing tools, pages, blog posts, About, Contact, Terms, or other working sections.
+- DO NOT rebuild the application.
+- Make ONLY the minimum code changes required for the SEO/technical issues below.
+- Preserve all existing working functionality.
+
+CURRENT AHFRES ISSUES TO INVESTIGATE AND FIX:
+1. Canonical points to redirect: 66 pages
+2. Page has no outgoing links: 66 pages
+3. Redirected page has no incoming internal links: 66 pages
+4. 3XX redirects: 70
+5. HTTP to HTTPS redirects: 2
+6. Redirect chain: 1
+7. H1 tag missing or empty: 66 pages
+8. Low word count: 66 pages
+9. Meta description too long: 66 pages
+10. Title too long: 66 pages
+11. 3XX redirect in sitemap: 66 pages
+
+IMPORTANT CANONICAL REQUIREMENT:
+- The homepage https://salahtoolshub.com/ must have its own correct self-referencing canonical.
+- Every individual tool page must have a self-referencing canonical to its FINAL 200/indexable URL.
+- Example:
+  /tools/age-calculator → canonical must be https://salahtoolshub.com/tools/age-calculator
+- Do NOT set all tool pages to the homepage canonical.
+- Do NOT set a canonical to a URL that returns 301/302/3XX.
+- Do NOT remove valid HTTP→HTTPS or www→non-www redirects just to make Ahrefs numbers look better. Keep normal domain normalization redirects if they are required.
+- Sitemap must contain only the final canonical 200 URLs, not redirecting URLs.
+
+IMPORTANT METADATA REQUIREMENT:
+Check the ACTUAL rendered HTML/DOM for every tool route, not only the React source code.
+
+Each important tool page must expose its own:
+- unique SEO title
+- appropriate-length meta description
+- self-referencing canonical
+- unique H1
+- useful page-specific text/content
+
+Do not allow the homepage title, description, H1, or canonical to appear on every tool page.
+
+IMPORTANT INTERNAL LINK REQUIREMENT:
+- Keep existing navigation and related-tools links working.
+- Ensure important tool pages have crawlable internal links to/from relevant pages.
+- Do not create unnecessary links just to manipulate the audit.
+- Do not change the visual design to achieve this.
+
+CONTENT:
+If Ahrefs reports low word count because the tool pages are currently exposing only generic/minimal content, add concise, useful, ORIGINAL text for the affected tool pages where appropriate, such as:
+- short tool introduction
+- how to use the tool
+- useful examples
+- relevant FAQ/help information
+
+Do NOT add artificial keyword stuffing or filler text just to increase word count.
+Do NOT copy content from other websites.
+
+MOST IMPORTANT:
+Before changing anything, inspect the existing SEO implementation and determine why the live pages are still showing the homepage canonical/metadata according to Ahrefs.
+
+Check:
+- route handling
+- SEO/meta component
+- canonical generation
+- dynamic tool SEO data
+- client-side vs server/rendered metadata
+- sitemap generation
+- redirect handling
+- production build/output
+
+The previous SEO implementation claimed that all 53 tool pages already had unique SEO metadata and self-referencing canonicals, but the current Ahrefs crawl still detects the homepage canonical on 66 pages. Therefore, DO NOT simply assume the previous implementation is working. Verify the actual production output and fix the underlying cause.
+
+VERIFICATION REQUIRED:
+After making the minimum necessary changes:
+1. Run the production build.
+2. Verify representative tool URLs and the homepage.
+3. Verify each tool URL returns the expected final 200 URL.
+4. Verify canonical URLs match the final URL.
+5. Verify sitemap contains final canonical URLs only.
+6. Verify robots.txt remains valid.
+7. Verify existing routes and tool functionality are unchanged.
+8. Check for console/build errors.
+9. Do not deploy any unrelated changes.
+
+Finally, give me a concise report containing:
+- exact files changed
+- exact SEO issues fixed
+- how canonical URLs are now generated
+- how you verified the live/production output
+- whether any issue could not be safely fixed and why
+- confirmation that UI, design, routing, and tool functionality were not changed.
+
+DO NOT make unrelated improvements.

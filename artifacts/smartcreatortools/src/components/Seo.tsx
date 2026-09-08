@@ -1,9 +1,13 @@
 import { useEffect } from "react";
-
-const SITE_URL = "https://salahtoolshub.com";
-const SITE_NAME = "Salah Tools Hub";
-const TWITTER_HANDLE = "@SalahToolsHub";
-const OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
+import {
+  absoluteUrl,
+  normalizeSeoTitle,
+  OG_IMAGE,
+  SITE_NAME,
+  SITE_URL,
+  trimSeoDescription,
+  TWITTER_HANDLE,
+} from "@/seo/metadata";
 
 interface BreadcrumbItem {
   name: string;
@@ -72,15 +76,15 @@ export function Seo({
   noIndex = false,
 }: SeoProps) {
   useEffect(() => {
-    const trimmedDesc =
-      description.length > 158 ? description.slice(0, 155) + "..." : description;
+    const normalizedTitle = normalizeSeoTitle(title);
+    const trimmedDesc = trimSeoDescription(description);
     const canonical =
       canonicalPath !== undefined
-        ? SITE_URL + canonicalPath
-        : window.location.origin + window.location.pathname;
+        ? absoluteUrl(canonicalPath)
+        : absoluteUrl(window.location.pathname);
     const pageUrl = canonical;
 
-    document.title = title;
+    document.title = normalizedTitle;
 
     setMeta("description", trimmedDesc);
     setMeta("keywords", keywords?.join(", ") ?? "");
@@ -88,7 +92,7 @@ export function Seo({
     setMeta("robots", noIndex ? "noindex, nofollow" : "index, follow");
     setMeta("googlebot", noIndex ? "noindex, nofollow" : "index, follow");
 
-    setMeta("og:title", title, "property");
+    setMeta("og:title", normalizedTitle, "property");
     setMeta("og:description", trimmedDesc, "property");
     setMeta("og:type", ogType, "property");
     setMeta("og:url", pageUrl, "property");
@@ -102,7 +106,7 @@ export function Seo({
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:site", TWITTER_HANDLE);
     setMeta("twitter:creator", TWITTER_HANDLE);
-    setMeta("twitter:title", title);
+    setMeta("twitter:title", normalizedTitle);
     setMeta("twitter:description", trimmedDesc);
     setMeta("twitter:image", OG_IMAGE);
     setMeta("twitter:image:alt", `${SITE_NAME} — Free Online Tools`);
